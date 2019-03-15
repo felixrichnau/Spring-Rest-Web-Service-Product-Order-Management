@@ -22,7 +22,7 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @PostMapping("/order")
+    @PostMapping("/api/order")
     Order create(@Valid @RequestBody Order order){
         return orderService.save(order);
     }
@@ -36,12 +36,12 @@ public class OrderController {
         return fieldErrorMessages;
     }
 
-    @GetMapping("/order")
+    @GetMapping("/api/order")
     Iterable<Order> read(){
         return orderService.findAll();
     }
 
-    @PutMapping("/order")
+    @PutMapping("/api/order")
     Order update(@RequestBody Order order){
             return  orderService.save(order);
     }
@@ -51,12 +51,12 @@ public class OrderController {
         orderService.deleteById(id);
     }
 
-    @GetMapping("/order/{id}")
+    @GetMapping("/api/order/{id}")
     Optional<Order> findById(@PathVariable Integer id){
         return orderService.findById(id);
     }
 
-    @GetMapping("/order/search")
+    @GetMapping("/api/order/search")
     Iterable<Order> findByQuery(
             @RequestParam(value = "id",required = false) int id, @RequestParam(value = "date",required = false) Date date){
         if(id !=0 && date !=null)
