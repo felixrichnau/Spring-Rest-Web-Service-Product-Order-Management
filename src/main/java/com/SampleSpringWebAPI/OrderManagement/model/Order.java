@@ -21,6 +21,17 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderLine> orderLines;
 
+    @ManyToOne
+    private Person customer;
+
+    public Person getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Person customer) {
+        this.customer = customer;
+    }
+
     public int getId() {
         return id;
     }

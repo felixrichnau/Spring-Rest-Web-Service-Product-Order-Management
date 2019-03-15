@@ -1,6 +1,7 @@
 package com.SampleSpringWebAPI.OrderManagement.util;
 
 public class ErrorMessage {
+
     private String status;
     private  String message;
 
