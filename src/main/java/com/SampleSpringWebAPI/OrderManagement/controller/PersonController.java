@@ -43,6 +43,8 @@ public class PersonController {
         return personService.findById(id);
     }
 
+    /* This class is almost exactly the same as the other two controllers. Would suggest you make a super class
+     * or combine them all together */
     @GetMapping("/api/person/search")
     Iterable<Person> findPersonByQuery(@RequestParam(value = "id",required = false)int id,
                                  @RequestParam(value = "name",required = false)String name,

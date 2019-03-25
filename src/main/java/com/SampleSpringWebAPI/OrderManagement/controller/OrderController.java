@@ -56,6 +56,9 @@ public class OrderController {
         return orderService.findById(id);
     }
 
+    /* I rewrote a very similar function in another class. Since these all search function seems to exists in multiple
+     * classes you should make a general function for them all. It also seems almost all of them have similar functions,
+      * behaviours. So adding a super class for Order,Person and Product probably is smart, make a super class. */
     @GetMapping("/api/order/search")
     Iterable<Order> findByQuery(
             @RequestParam(value = "id",required = false) int id, @RequestParam(value = "date",required = false) Date date){
